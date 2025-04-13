@@ -1,0 +1,80 @@
+# E-commerce Store Management System Design Document
+
+This document outlines the high-level software architecture and design for an e-commerce store management system based on the provided user stories.
+
+## I. System Architecture
+
+The system will be a three-tier architecture:
+
+* **Presentation Tier:**  This tier handles user interaction. It will consist of a web application (for both agency and GSHHDCL users) and potentially mobile applications in the future.  Technologies considered include React, Angular, or Vue.js for the frontend, and Node.js or Python (Django/Flask) for the backend API.
+
+* **Application Tier:** This tier contains the business logic and processes data requests from the presentation tier and interacts with the data tier.  It will manage bid submissions, contract management, product catalog, inventory, order processing, reporting, and communication with GSHHDCL.  Microservices architecture is recommended for scalability and maintainability.  Each microservice will handle a specific business function (e.g., order management, inventory management, reporting).
+
+* **Data Tier:** This tier stores and manages persistent data.  A relational database (PostgreSQL or MySQL) is recommended for structured data like product information, orders, customer details, and financial records.  A NoSQL database (MongoDB) could be used to supplement the relational database for handling unstructured data like customer feedback or website logs.
+
+
+## II. System Components
+
+The system will comprise the following key components:
+
+* **Bid Management Module:** Handles bid submission, validation, evaluation, and notification.  Includes features for document upload, scoring rubric application, and automated notifications.
+
+* **Contract Management Module:** Manages contract creation, signing, and performance guarantee/security deposit tracking.  Integrates with a document management system.
+
+* **Product Catalog & Inventory Management Module:**  Allows the agency to manage product information, inventory levels, pricing (according to GSHHDCL guidelines), and receive product availability updates from GSHHDCL.
+
+* **Order Management Module:** Handles order placement, processing, packing, dispatching, tracking, and customer communication (email/SMS).  Integrates with shipping providers.
+
+* **Customer Relationship Management (CRM) Module:** Manages customer inquiries, complaints, returns, and feedback.
+
+* **Reporting & Analytics Module:** Generates weekly and monthly reports on website activity, sales, revenue, expenses, and other key metrics for GSHHDCL.
+
+* **Communication Module:** Facilitates communication between the agency, GSHHDCL, and customers.  Includes email, SMS, and potentially in-app messaging.
+
+* **User Management Module:** Manages user accounts, roles, and permissions for both agency and GSHHDCL users.
+
+* **Payment Gateway Integration:** Integrates with a secure payment gateway to process online payments and manage transactions.
+
+
+## III. Data Flow
+
+The data flow will follow a typical three-tier architecture pattern.  For example, a customer placing an order:
+
+1. **Presentation Tier:** Customer interacts with the website, adds products to the cart, and submits the order.
+2. **Application Tier:** The order management microservice receives the order, validates it, updates inventory, and creates an order record in the database.
+3. **Data Tier:** The order information is stored in the relational database.
+4. **Application Tier:** The order management microservice sends order confirmation via email/SMS (Communication Module).
+5. **Application Tier:** The order management microservice updates the order status and provides tracking information.
+6. **Presentation Tier:** The customer can track their order status on the website.
+
+
+## IV. UI Wireframes (High-Level)
+
+**A. Bid Submission Page:**  Form for uploading technical and price bids, specifying bid validity, and confirming submission.
+
+**B. Bid Evaluation Dashboard (Evaluator):**  A dashboard displaying submitted bids, evaluation criteria, scoring rubric, and ability to input scores and comments.
+
+**C. Product Management Dashboard (Agency):**  A dashboard for adding, editing, and deleting products, managing inventory, and viewing product availability updates from GSHHDCL.
+
+**D. Order Management Dashboard (Agency):**  A dashboard displaying orders, their status, and allowing for order processing, packing, dispatching, and tracking updates.
+
+**E. Reporting Dashboard (GSHHDCL):**  A dashboard displaying weekly and monthly reports on website activity, sales, revenue, expenses, and other key metrics.
+
+**F. Customer Service Dashboard (Agency):**  A dashboard for managing customer inquiries, complaints, and returns.
+
+
+## V. Technology Stack (Proposed)
+
+* **Frontend:** React.js
+* **Backend:** Node.js with Express.js
+* **Database:** PostgreSQL (primary), MongoDB (secondary)
+* **Cloud Provider:** AWS or Google Cloud Platform (for scalability and reliability)
+* **Payment Gateway:** Stripe or PayPal
+
+
+## VI.  Deployment
+
+A continuous integration and continuous deployment (CI/CD) pipeline will be implemented to automate the build, testing, and deployment process.  This will ensure rapid and reliable releases.
+
+
+This design document provides a high-level overview of the system architecture and design.  Further details will be elaborated in subsequent design documents.

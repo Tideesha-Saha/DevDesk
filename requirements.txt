@@ -1,0 +1,3 @@
+crewai
+langchain_google_gemini
+load_dotenv

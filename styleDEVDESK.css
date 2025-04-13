@@ -1,0 +1,74 @@
+/* styleDEVDESK.py */
+
+.st-emotion-cache-mtjnbi{
+    padding-top: 50px;
+    max-width: 90vw;
+   
+    /* text-align: center;  */
+}
+.st-emotion-cache-1yju4pw {
+    align-items: center;
+    text-align: center;
+}
+.st-emotion-cache-1n76uvr {
+    align-items: center;
+    text-align: center;
+}
+
+/* .st-emotion-cache-16tyu1 h1 {
+    font-size: 2.5rem;
+    color: #1d547b;
+    text-align: center;
+} */
+
+#autonomous-dev-pods-seamless-delivery-maximum-impact{
+    font-style: italic;
+    font-size: 1rem;
+    padding-left:4vw ;
+}
+
+.st-emotion-cache-1gulkj5{
+    /* background-color: #e2fefe; */
+    background-color: #f3f6fd;
+    background-color: #e6f5ff;
+    border-radius: 40px;
+    border: 3px dashed #1d547b;
+    height:35vh;
+    
+}
+
+.st-emotion-cache-1gulkj5{
+    /* padding: 2vh; */
+    flex-direction: column;
+    justify-content: center;
+    /* gap:25px; */
+    font-size: 1.5rem;
+    text-align: center;
+}
+.st-emotion-cache-u8hs99 {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap:10px;
+}
+
+.st-emotion-cache-ocsh0s.em9zgd02{
+    background-color: #1d547b;
+    color: white;
+    margin-top: 15px;
+}
+
+.st-emotion-cache-16tyu1 p, .st-emotion-cache-16tyu1 ol, .st-emotion-cache-16tyu1 ul, .st-emotion-cache-16tyu1 dl, .st-emotion-cache-16tyu1 li {
+    font-size: 0.9rem;
+    /* padding-left:7vw ;
+    padding-right: 7vw; */
+    /* text-align: center; */
+}
+
+#RFP-span-id{
+    background-color: #1d547b;
+    color:white;
+    padding: 0 5px;
+    border-radius: 10px;
+}

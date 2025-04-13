@@ -1,0 +1,110 @@
+```javascript
+// This is a simplified example and would require significant expansion for a production-ready system.
+
+// --- Models (using Mongoose for MongoDB example) ---
+const mongoose = require('mongoose');
+
+const ProductSchema = new mongoose.Schema({
+  name: String,
+  description: String,
+  price: Number,
+  inventory: Number,
+  // ... other product details
+});
+
+const OrderSchema = new mongoose.Schema({
+  customer: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  items: [{ product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' }, quantity: Number }],
+  total: Number,
+  status: String, // e.g., 'pending', 'processing', 'shipped', 'delivered'
+  // ... other order details
+});
+
+const UserSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  role: String, // e.g., 'agency', 'gshhdcl', 'customer'
+  // ... other user details
+});
+
+const Product = mongoose.model('Product', ProductSchema);
+const Order = mongoose.model('Order', OrderSchema);
+const User = mongoose.model('User', UserSchema);
+
+
+// --- Microservices (example using Express.js) ---
+
+// Order Management Microservice
+const express = require('express');
+const orderRouter = express.Router();
+
+orderRouter.post('/', async (req, res) => {
+  try {
+    const newOrder = new Order(req.body);
+    await newOrder.save();
+    res.status(201).json(newOrder);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// ... other order management routes (GET, PUT, DELETE, etc.)
+
+
+// Product Catalog & Inventory Management Microservice
+const productRouter = express.Router();
+
+productRouter.get('/', async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// ... other product management routes (POST, PUT, DELETE, etc.)
+
+
+// --- API Gateway (example using Express.js) ---
+const app = express();
+app.use('/orders', orderRouter);
+app.use('/products', productRouter);
+// ... other microservice routes
+
+app.listen(3000, () => console.log('API Gateway listening on port 3000'));
+
+
+// --- React Frontend (example component) ---
+import React, { useState, useEffect } from 'react';
+
+function ProductList() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch('/products')
+      .then(res => res.json())
+      .then(data => setProducts(data));
+  }, []);
+
+  return (
+    <ul>
+      {products.map(product => (
+        <li key={product._id}>{product.name} - ${product.price}</li>
+      ))}
+    </ul>
+  );
+}
+
+// ... other React components for different parts of the UI
+
+
+// --- Database Connection ---
+mongoose.connect('mongodb://localhost:27017/ecommerce', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+
+//Note:  This is a highly simplified example. A real-world e-commerce system would require significantly more code to handle features like user authentication, payment processing, shipping integrations, robust error handling, data validation, and much more.  It would also need to implement the other microservices (bid management, contract management, reporting, etc.) and a more sophisticated frontend.  Consider using a framework like NestJS for a more structured backend.
+```

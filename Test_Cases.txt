@@ -1,0 +1,121 @@
+```javascript
+// tests/api/order.test.js
+const request = require('supertest');
+const app = require('../../app'); // Assuming your API gateway is in app.js
+const mongoose = require('mongoose');
+const Order = require('../../models/Order'); // Assuming your models are in models/
+
+// Mock User and Product models for simplicity (replace with actual mocks if needed)
+const User = { _id: mongoose.Types.ObjectId() };
+const Product = { _id: mongoose.Types.ObjectId() };
+
+afterEach(async () => {
+  await Order.deleteMany({}); // Clean up after each test
+});
+
+afterAll(async () => {
+    await mongoose.disconnect();
+});
+
+
+describe('Order API', () => {
+  it('should create a new order', async () => {
+    const res = await request(app)
+      .post('/orders')
+      .send({
+        customer: User._id,
+        items: [{ product: Product._id, quantity: 2 }],
+        total: 100,
+        status: 'pending',
+      });
+    expect(res.status).toBe(201);
+    expect(res.body).toHaveProperty('_id');
+    expect(res.body.customer).toEqual(User._id.toString());
+    expect(res.body.items).toEqual([{ product: Product._id.toString(), quantity: 2 }]);
+    expect(res.body.total).toBe(100);
+    expect(res.body.status).toBe('pending');
+  });
+
+  it('should handle invalid order data', async () => {
+    const res = await request(app)
+      .post('/orders')
+      .send({
+        customer: 'invalid',
+        items: [{ product: 'invalid', quantity: -1 }],
+        total: -100,
+        status: 'invalid',
+      });
+    expect(res.status).toBe(500); // Or a more specific error code if implemented
+    expect(res.body).toHaveProperty('error');
+  });
+
+  it('should retrieve all orders', async () => {
+    await Order.create({ customer: User._id, items: [{ product: Product._id, quantity: 1 }], total: 50, status: 'pending' });
+    const res = await request(app).get('/orders'); // Assuming you have a GET route
+    expect(res.status).toBe(200);
+    expect(Array.isArray(res.body)).toBe(true);
+  });
+
+  // Add more tests for other order management routes (GET, PUT, DELETE)
+});
+
+
+// tests/api/product.test.js
+const request = require('supertest');
+const app = require('../../app');
+const Product = require('../../models/Product');
+
+afterEach(async () => {
+  await Product.deleteMany({});
+});
+
+describe('Product API', () => {
+  it('should retrieve all products', async () => {
+    await Product.create({ name: 'Test Product', description: 'Test', price: 10, inventory: 100 });
+    const res = await request(app).get('/products');
+    expect(res.status).toBe(200);
+    expect(Array.isArray(res.body)).toBe(true);
+    expect(res.body[0]).toHaveProperty('name', 'Test Product');
+  });
+
+  it('should handle database errors gracefully', async () => {
+    // Mock a database error (replace with actual error handling if needed)
+    const originalFind = Product.find;
+    Product.find = jest.fn(() => {
+      throw new Error('Database error');
+    });
+    const res = await request(app).get('/products');
+    expect(res.status).toBe(500);
+    Product.find = originalFind; // Restore original function
+  });
+
+  // Add more tests for POST, PUT, DELETE routes
+});
+
+
+// tests/frontend/ProductList.test.js
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import ProductList from '../../components/ProductList'; // Adjust path as needed
+
+// Mock fetch for testing
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve([{ name: 'Test Product', price: 10 }, { name: 'Another Product', price: 20 }]),
+  })
+);
+
+test('ProductList renders correctly', () => {
+  render(<ProductList />);
+  expect(screen.getByText('Test Product - $10')).toBeInTheDocument();
+  expect(screen.getByText('Another Product - $20')).toBeInTheDocument();
+});
+
+test('ProductList handles fetch errors', () => {
+  global.fetch.mockRejectedValueOnce(new Error('Network error'));
+  render(<ProductList />);
+  // Add assertions to check for error handling (e.g., loading indicator, error message)
+});
+
+// Add more tests for other React components
+```

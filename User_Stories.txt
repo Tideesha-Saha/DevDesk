@@ -1,0 +1,110 @@
+**User Stories for E-commerce Store Management**
+
+**I. Bid Submission and Evaluation:**
+
+1. **As a bidder,** I want to submit my offer (technical and price bids) electronically, so that my bid is received and processed efficiently.
+    * **Acceptance Criteria:** The system successfully receives and timestamps the electronic bid submission.  A confirmation email is sent to the bidder.
+
+2. **As a bidder,** I want to submit my bid documents in the specified format, so that my bid is considered for evaluation.
+    * **Acceptance Criteria:** The submitted bid documents conform to the required format (Form-C3, etc.) and include all mandatory information.
+
+3. **As a bidder,** I want my bid to remain valid for 180 days from the last submission date, so that my bid is considered during the evaluation period.
+    * **Acceptance Criteria:** The bid validity period is clearly stated and enforced by the system.
+
+4. **As a bidder,** I want to know the criteria for bid evaluation, so that I can tailor my proposal accordingly.
+    * **Acceptance Criteria:**  The RFP clearly outlines the evaluation criteria (e.g., profile strength, experience, project understanding).
+
+5. **As an evaluator,** I want to assess bids based on predefined criteria, so that the most suitable bidder is selected.
+    * **Acceptance Criteria:**  A scoring rubric is used to objectively evaluate bids based on the defined criteria.  Scores are documented and auditable.
+
+6. **As a bidder,** I want to receive notification of the bid evaluation results, so that I am aware of the outcome of my bid.
+    * **Acceptance Criteria:**  Bidders receive timely notification of whether their bid was successful or unsuccessful.
+
+**II. Contract and Onboarding:**
+
+7. **As the agency,** I want to receive a contract outlining the scope of work, timelines, and payment terms, so that I understand my obligations and entitlements.
+    * **Acceptance Criteria:** A legally sound contract is signed by both parties, outlining all key aspects of the agreement.
+
+8. **As the agency,** I want to submit the required performance guarantee and security deposit, so that the contract can be executed.
+    * **Acceptance Criteria:** The performance guarantee and security deposit are received and verified by GSHHDCL.
+
+
+**III. Website Operation and Management:**
+
+9. **As the agency,** I want to efficiently manage the product catalog and inventory on the online store, so that customers can see accurate product availability.
+    * **Acceptance Criteria:** The online store displays up-to-date inventory levels for all products.  Inventory discrepancies are reported and resolved promptly.
+
+10. **As the agency,** I want to submit weekly reports on website activity, visitor logs, and content updates, so that GSHHDCL can monitor performance.
+    * **Acceptance Criteria:** Weekly reports are submitted on time and include all required data points.
+
+11. **As the agency,** I want to submit monthly reports on revenue, expenses, sales analysis, and other key metrics, so that GSHHDCL can track financial performance.
+    * **Acceptance Criteria:** Monthly reports are submitted on time and are accurate and comprehensive.
+
+12. **As the agency,** I want to sell handloom and handicraft products at the prices set by the Corporation, so that pricing is consistent and accurate.
+    * **Acceptance Criteria:** All products are priced according to the Corporation's pricing guidelines.
+
+13. **As the agency,** I want to collect taxes (GST, etc.) from customers and remit them to the relevant authorities, so that I comply with tax regulations.
+    * **Acceptance Criteria:** Taxes are collected accurately and remitted to the authorities on time.  All necessary tax records are maintained.
+
+14. **As the agency,** I want to receive regular updates on the availability of products from the Corporation, so that I can manage inventory effectively.
+    * **Acceptance Criteria:** The Corporation provides timely updates on product availability and any potential delays.
+
+15. **As the agency,** I want to manage customer orders, including processing, packing, dispatching, and tracking, so that customers receive their orders promptly and efficiently.
+    * **Acceptance Criteria:** Orders are processed and dispatched within the specified timeframe.  Customers receive tracking information and timely updates.
+
+16. **As the agency,** I want to handle customer queries, complaints, and returns efficiently, so that customer satisfaction is maintained.
+    * **Acceptance Criteria:** Customer inquiries are responded to within 2 days.  Complaints and returns are handled according to established procedures.
+
+17. **As the agency,** I want to provide 24/7 website content updates as requested by GSHHDC, so that the website remains current and relevant.
+    * **Acceptance Criteria:**  Website content is updated within the specified timeframe and meets GSHHDC's requirements.
+
+18. **As the agency,** I want to manage social media platforms as directed by GSHHDCL, so that the brand presence is consistent across all channels.
+    * **Acceptance Criteria:** Social media platforms are managed according to GSHHDCL's guidelines and branding standards.
+
+
+**IV. Payment and Reporting:**
+
+19. **As the agency,** I want to raise invoices monthly and submit them to GSHHDCL, so that I receive timely payment.
+    * **Acceptance Criteria:** Invoices are submitted on time and in the correct format.  Payments are made within 30 days of invoice receipt.
+
+20. **As GSHHDCL,** I want to receive regular reports on the agency's performance, so that I can monitor progress and ensure compliance.
+    * **Acceptance Criteria:**  The agency provides regular reports as specified in the contract.
+
+21. **As GSHHDCL,** I want to be able to deduct payments if the agency fails to meet sales targets, so that I am protected from underperformance.
+    * **Acceptance Criteria:**  The contract clearly outlines the payment deduction policy for unmet sales targets.
+
+
+**V.  Staffing and Resources:**
+
+22. **As the agency,** I want to deploy sufficient staff with relevant expertise (online marketing, customer service, etc.), so that I can deliver the required services effectively.
+    * **Acceptance Criteria:** The agency provides a staffing plan that meets the requirements outlined in the RFP.  Staff possess the necessary skills and experience.
+
+23. **As GSHHDCL,** I want to have access to agency staff for support and coordination, so that communication and collaboration are efficient.
+    * **Acceptance Criteria:**  The agency designates a point of contact for communication and collaboration.  Staff are responsive to GSHHDCL requests.
+
+
+**VI.  Product Handling:**
+
+24. **As the agency,** I want to upload products onto the Garvi Gurjari web portal within 10 days of receipt, so that products are available for sale promptly.
+    * **Acceptance Criteria:** Products are uploaded within 10 days and include high-quality images and descriptions.
+
+25. **As the agency,** I want to inform customers of order placement via email/SMS, so that customers are kept informed.
+    * **Acceptance Criteria:**  Order confirmation is sent via email/SMS on the same day the order is placed.
+
+26. **As the agency,** I want to process, pack, and dispatch orders within 1 day of confirmation, so that order fulfillment is efficient.
+    * **Acceptance Criteria:** Orders are processed and dispatched within 24 hours of confirmation.
+
+27. **As the agency,** I want to use appropriate packaging materials to ensure product safety during shipping, so that products arrive in good condition.
+    * **Acceptance Criteria:** Products are packaged using suitable materials to prevent damage during transit.
+
+28. **As the agency,** I want to provide customers with tracking details and estimated delivery dates, so that customers can monitor their orders.
+    * **Acceptance Criteria:** Tracking information and estimated delivery dates are provided to customers within 1 day of dispatch.
+
+29. **As the agency,** I want to request customer feedback after delivery, so that I can improve my services.
+    * **Acceptance Criteria:**  Customer feedback requests are sent within 2 days of delivery.
+
+30. **As the agency,** I want to inform GSHHDCL of customer requirements/inquiries promptly, so that GSHHDCL is kept informed.
+    * **Acceptance Criteria:** Customer requirements/inquiries are communicated to GSHHDCL within 1 day of receipt.
+
+31. **As the agency,** I want to handle customer refunds according to the Garvi Gurjari web portal's refund policy, so that customers are treated fairly.
+    * **Acceptance Criteria:** Refunds are processed within 2 days of receiving the refund request, according to the established policy.
