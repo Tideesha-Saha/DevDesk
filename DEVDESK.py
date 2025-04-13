@@ -109,7 +109,7 @@ if uploaded_file:
             ba_output = f'<div style="border: 3px solid #b4d6e3;text-align:left; padding: 20px; border-radius: 5px; color: black; background-color: white; width: 100%;">{ba_text}</div>'
 
         with st.expander("User Stories", expanded=False):
-            st.subheader("Developer Agent Output:")
+            st.subheader("Business Analyst Agent Output:")
             st.markdown(ba_output,unsafe_allow_html=True)
 
 
